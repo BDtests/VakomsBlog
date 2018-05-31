@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+{% block authentication_block %}
+    <p><a href="{% url 'authentication:registration' %}">Register</a></p>
+    <p><a href="{% url 'authentication:login' %}">Login</a></p>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+{% block authentication_block %}
+
+<div class="container">
+    <h1>Register Here!</h1>
+    <h3>Fill out the form:</h3>
+    <form method='POST'>
+        {% csrf_token %}
+        <p>First Name: <input type="text" name="first_name"></p>
+        <p>Last Name: <input type="text" name="last_name"></p>
+        <p>Email: <input type="email" name="email"></p>
+        <p>Phone: <input type="tel" name="phone" maxlength="15"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p><input type="submit" value='Register'></p>
+    </form>
+</div>
+
+{% endblock %}

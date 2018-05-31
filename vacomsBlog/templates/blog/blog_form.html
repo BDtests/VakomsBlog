@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+
+
+{% block body_block %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>Blog's Name: <input type="text" name="name"></p>
+        <p>Description: <input type="text" name="description"></p>
+        <p><input type="submit" value="Create"></p>
+    </form>
+{% endblock %}

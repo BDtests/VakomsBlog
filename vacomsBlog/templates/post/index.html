@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block body_block %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+
+    {% if user.id == post.author.id %}
+        <a href="{% url 'post:delete_post' post_id=post.id %}">Delete Post</a>
+    {% endif %}
+        <p>-------------------------------------</p>
+
+    <form method="POST" action="{% url 'comment:create_comment' post_id=post.id %}">
+        {% csrf_token %}
+        <input type="text" name="content">
+        <input type="submit" value="Comment">
+    </form>
+
+        {% if comments %}
+            <div>
+                <h2>Recent Comments</h2>
+                {% for comment in comments %}
+                    <div>
+                        <h3>{{ comment.author.first_name }}</h3>
+                        <p>{{ comment.content }}</p>
+                    </div>
+                    {% if user.id == comment.author.id %}
+                        <a href="{% url 'comment:delete_comment' comment_id=comment.id %}">Delete Comment</a>
+                    {% endif %}
+                    <p>-------------------------------------</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+{% endblock %}

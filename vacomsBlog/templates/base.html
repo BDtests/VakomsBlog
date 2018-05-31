@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VakomsBlog</title>
+</head>
+<body>
+    <p><a href="{% url 'home:index' %}">HOME</a></p>
+    {% if user.is_authenticated %}
+        <ul>
+            <li><a href="{% url 'home:my_blogs' %}">My Blogs</a></li>
+            <li><a href="{% url 'blog:create_blog' %}">Create Blog</a></li>
+            <li>
+                <form action="{% url 'home:user_blogs' %}">
+                    Find Blog by Author's Email: <input type="text" name="user_email">
+                    <input type="submit" value="Search">
+                </form>
+            </li>
+            <li>
+                <form action="{% url 'home:find_blog' %}">
+                    Find Blog by Title: <input type="text" name="blog_name">
+                    <input type="submit" value="Search">
+                </form>
+            </li>
+            <li><a href="{% url 'authentication:logout' %}">Logout</a></li>
+        </ul>
+        {% block body_block %}
+        {% endblock %}
+
+    {% else %}
+        {% block authentication_block %}
+        {% endblock %}
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block body_block %}
+    <h1>{{ blog.name }}</h1>
+    <p>{{ blog.description }}</p>
+    {% if user.id == blog.author.id %}
+        <a href="{% url 'blog:delete_blog' blog_id=blog.id %}">Delete Blog</a>
+    {% endif %}
+    <p>-------------------------------------</p>
+    {% if user.id == blog.author.id %}
+        <a href="{% url 'post:create_post' blog_id=blog.id %}">Create Post</a>
+    <p>-------------------------------------</p>
+    {% endif %}
+    <div>
+        {% if posts %}
+            <h2>Recent Posts</h2>
+            {% for post in posts %}
+                <div>
+                    <h3>{{ post.title }}</h3>
+                    <a href="{% url 'post:index' post_id=post.id%}">Read Post</a>
+                </div>
+                <p>-------------------------------------</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+
+
+{% block body_block %}
+    <h1>Create Post</h1>
+    <form method="POST" action="{% url 'post:create_post' blog_id=blog_id %}">
+        {% csrf_token %}
+        <p>Title: <input type="text" name="title"></p>
+        <p>Content: <input type="text" name="content"></p>
+        <p><input type="submit" value="Create"></p>
+    </form>
+{% endblock %}
