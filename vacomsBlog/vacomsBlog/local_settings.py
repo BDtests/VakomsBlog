@@ -1,22 +1,19 @@
-#Required fields:NAME, USER, PASSWORD
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'vacomsDB',
+        'USER': 'root',
+        'PASSWORD': 'bogdan1994',
         'HOST': '',
         'PORT': '',
     }
 }
 
-
 FRONT_HOST = 'localhost:8000'
-
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'your.email@gmail.com'
-EMAIL_HOST_PASSWORD = 'your_password'
+EMAIL_HOST_USER = 'dubas.writer@gmail.com'
+EMAIL_HOST_PASSWORD = 'bogdan1994'
 EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = 'your_email@gmail.com'
+DEFAULT_FROM_EMAIL = 'dubas.writer@gmail.com'

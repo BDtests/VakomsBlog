@@ -1,0 +1,19 @@
+# .coveragerc to control coverage.py
+
+[run]
+
+source =
+    authentication
+    blog
+    comment
+    home
+    post
+    utils
+
+omit =
+    *migrations*
+    *urls.py*
+    *apps.py*
+    *admin.py*
+    *__init__.py*
+    *responsehelper.py*
