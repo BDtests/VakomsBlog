@@ -18,6 +18,7 @@ def register(request):
                                  phone=data.get('phone'),
                                  password=data.get('password')
                                  )
+
         if user:
             email_data = {'domain': settings.FRONT_HOST,
                           'token': user.email}
@@ -39,6 +40,7 @@ def login_user(request):
         data = request.POST
         user = authenticate(email=data.get('email'),
                             password=data.get('password'))
+
         if user:
             login(request, user)
             return HttpResponseRedirect(reverse("home:index"))
@@ -63,3 +65,4 @@ def activate(request, token):
         if user:
             user.activate()
             return HttpResponseRedirect(reverse("home:index"))
+        return RESPONSE_400_INVALID_DATA

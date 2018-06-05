@@ -1,4 +1,6 @@
 # VakomsBlog
+
+
 Simple django-based blog
 
 In order to start the server locally, perform following actions:

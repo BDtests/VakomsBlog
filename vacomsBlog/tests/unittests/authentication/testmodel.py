@@ -14,7 +14,7 @@ class TestCustomUserModel(TestCase):
 
         self.user = CustomUser.objects.get(id=1)
 
-    def test_set(self):
+    def test_str(self):
         self.assertEqual(self.user.__str__(), 'dubas.bogdan@gmail.com')
 
     def test_get_by_id_positive(self):
